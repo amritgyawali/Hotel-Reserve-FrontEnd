@@ -1,0 +1,57 @@
+<mat-form-field color="accent" appearance="outline">
+    <mat-label>Search Hotels</mat-label>
+    <input matInput>
+    <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+    </button>
+</mat-form-field>
+
+<mat-card>
+    <mat-card-content>
+        You are viewing {{hotelAndRooms.length}} Hotels
+    </mat-card-content>
+</mat-card>
+
+<div class="hotelAndRooms">
+    <div *ngFor="let item of hotelAndRooms" class="hotel-container">
+        <!-- Hotel -->
+        <div class="hotels">
+            <div class="images">
+                <img [src]="getBase64Image(item.hotel.image.toString(), item.hotel.imageExtension)" alt="Hotel Image"
+                    [style.width.px]="200" [style.height.px]="200" />
+            </div>
+            <div class="details">
+                <h2>
+                    Hotel Name: {{item.hotel.name}}
+                </h2>
+                <p>
+                    Description: {{item.hotel.description}}
+                </p>
+            </div>
+        </div>
+
+        <!-- Rooms -->
+        <div *ngIf="item.rooms.length > 0" class="rooms-container">
+            <h3>Available Rooms</h3>
+            <div *ngFor="let room of item.rooms" class="rooms">
+                <div class="room-images">
+                    <img [src]="getBase64Image(room.image.toString(), room.imageExtension)" alt="Room Image"
+                        [style.width.px]="200" [style.height.px]="200" />
+                </div>
+                <div class="room-details">
+                    <h4>
+                        Room Type: {{room.roomType}}
+                    </h4>
+                    <p>
+                        Description: {{room.description}}
+                    </p>
+                    <p>Price: Rs {{room.roomPrice}}</p>
+                    <!-- Additional room details can be displayed here -->
+                </div>
+            </div>
+        </div>
+        <div *ngIf="item.rooms.length === 0" class="no-rooms">
+            <p>No rooms available for this hotel.</p>
+        </div>
+    </div>
+</div>

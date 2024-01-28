@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-content>
+        <h1>{{ panelName }}</h1>
+    </mat-card-content>
+</mat-card>
+
+<mat-nav-list>
+
+    @if(userName){
+    <div class="username-section">
+        <h3>Welcome, {{userName}}</h3>
+    </div>
+    }
+
+    @for (item of navItems; track navItems) {
+        <a mat-list-item routerLink="/{{item.link}}" routerLinkActive="active-link">{{item.value}}</a>
+    }
+    @if(userLoggedIn === true){
+    <div class="logged-out">
+        <button mat-raised-button color="#3498db" (click)="logout()">Log Out</button>
+    </div>
+    }
+
+    @if(userLoggedIn === false){
+
+    <div class="button-container">
+        <a mat-raised-button color="#e74c3c" routerLink="/register">Register</a>
+        <a mat-raised-button color="#3498db" routerLink="/login">Login</a>
+    </div>
+    }
+
+</mat-nav-list>

@@ -1,0 +1,79 @@
+:host {
+    display: block;
+    padding: 1rem 0;
+}
+
+mat-form-field {
+    width: 500px;
+    margin: 0 auto;
+    display: block;
+}
+
+mat-card {
+    margin-bottom: 1rem;
+
+    mat-card-content {
+        font-size: 1.5rem;
+    }
+}
+
+// hotel-view.component.scss
+// hotel-view.component.scss
+// hotel-view.component.scss
+.hotelAndRooms {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .hotel-container {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid #ddd; /* Add attractive border */
+    padding: 10px;
+    border-radius: 10px; /* Optional: Add rounded corners */
+  }
+  
+  .hotels {
+    display: flex;
+    align-items: center;
+  }
+  
+  .images {
+    margin-right: 20px;
+    border-radius: 5px; /* Optional: Add rounded corners to images */
+    overflow: hidden;
+  }
+  
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .details {
+    flex-grow: 1;
+  }
+  
+  .rooms-container {
+    width: 100%;
+  }
+  
+  .rooms {
+    display: flex;
+    margin-bottom: 20px;
+    border: 2px solid #ddd; /* Add attractive border */
+    padding: 10px;
+    border-radius: 10px; /* Optional: Add rounded corners */
+  }
+  
+  .room-images {
+    margin-right: 20px;
+    border-radius: 5px; /* Optional: Add rounded corners to images */
+    overflow: hidden;
+  }
+  
+  .no-rooms {
+    color: red;
+    font-weight: bold;
+  }
+  
