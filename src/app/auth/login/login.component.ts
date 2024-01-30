@@ -34,11 +34,8 @@ export class LoginComponent {
     this.apiService.login(user).subscribe({
       next: res => {
         
-        if( res === "!!!NO SUCH ACCOUNT!!!"){
+        if( res === "NO ACCOUNT"){
             this.snackBar.open("!!! Invalid Credentials !!!", "OK");
-        }
-        else if(res === "UNAPPROVED"){
-          this.snackBar.open("Account Not Verified", "Ok");
         }
         else{
           this.snackBar.open("Welcome", "Ok")

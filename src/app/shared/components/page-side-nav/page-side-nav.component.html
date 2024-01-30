@@ -12,8 +12,14 @@
     </div>
     }
 
-    @for (item of navItems; track navItems) {
-        <a mat-list-item routerLink="/{{item.link}}" routerLinkActive="active-link">{{item.value}}</a>
+    @if (navItems.length > 0) {
+
+        <div class="nav-container">
+    
+            @for (item of navItems; track navItems) {
+                <a mat-list-item routerLink="/{{item.link}}" routerLinkActive="active-link" class="links-nav">{{item.value}}</a>
+            }
+        </div>
     }
     @if(userLoggedIn === true){
     <div class="logged-out">

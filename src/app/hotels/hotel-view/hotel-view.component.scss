@@ -1,79 +1,252 @@
-:host {
-    display: block;
-    padding: 1rem 0;
-}
+// Global styles
+$primary-color: #3f51b5;
+$accent-color: #ff4081;
 
+// Styling for mat-form-field
 mat-form-field {
-    width: 500px;
-    margin: 0 auto;
-    display: block;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  margin-bottom: 15px;
+  box-sizing: border-box;
 }
 
+// Styling for input and button inside mat-form-field
+mat-label, input {
+  font-size: 16px;
+}
+
+button{
+  font-size: 16px;
+  width: 200px;
+}
+
+// Styling for date-input class inside mat-form-field
+.date-input {
+  margin: 2%;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+// Styling for mat-datepicker-toggle
+mat-datepicker-toggle {
+  cursor: pointer;
+}
+
+// Styling for mat-card
 mat-card {
-    margin-bottom: 1rem;
-
-    mat-card-content {
-        font-size: 1.5rem;
-    }
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-// hotel-view.component.scss
-// hotel-view.component.scss
-// hotel-view.component.scss
-.hotelAndRooms {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .hotel-container {
-    width: 100%;
-    margin-bottom: 20px;
-    border: 2px solid #ddd; /* Add attractive border */
-    padding: 10px;
-    border-radius: 10px; /* Optional: Add rounded corners */
-  }
-  
-  .hotels {
-    display: flex;
-    align-items: center;
-  }
-  
+// Styling for mat-card-content
+mat-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+// Styling for mat-raised-button
+mat-raised-button {
+  margin-top: 10px;
+}
+
+// Styling for hotel-container
+.hotel-container {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+// Styling for hotels class inside hotel-container
+.hotels {
+  display: flex;
+  align-items: center;
+
+  // Styling for hotel images
   .images {
     margin-right: 20px;
-    border-radius: 5px; /* Optional: Add rounded corners to images */
-    overflow: hidden;
   }
-  
-  img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  
+
+  // Styling for hotel details
   .details {
-    flex-grow: 1;
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+    }
   }
-  
-  .rooms-container {
-    width: 100%;
+}
+
+// Styling for rooms-container
+.rooms-container {
+  border: 1px solid #ddd;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
   }
-  
+
+  // Styling for rooms class inside rooms-container
   .rooms {
     display: flex;
+    align-items: center;
     margin-bottom: 20px;
-    border: 2px solid #ddd; /* Add attractive border */
-    padding: 10px;
-    border-radius: 10px; /* Optional: Add rounded corners */
+
+    // Styling for room images
+    .room-images {
+      margin-right: 20px;
+    }
+
+    // Styling for room details
+    .room-details {
+      h4 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+    }
+
+    // Styling for room-booking-form class
+    .room-booking-form {
+      width: 100%;
+
+      // Styling for date-input class inside room-booking-form
+      .date-input {
+        width: 100%;
+      }
+
+      // Styling for mat-raised-button inside room-booking-form
+      mat-raised-button {
+        margin-top: 10px;
+      }
+    }
   }
-  
-  .room-images {
-    margin-right: 20px;
-    border-radius: 5px; /* Optional: Add rounded corners to images */
-    overflow: hidden;
+}
+
+// Styling for no-rooms class
+.no-rooms {
+  p {
+    font-size: 16px;
   }
-  
-  .no-rooms {
-    color: red;
-    font-weight: bold;
-  }
-  
+}
+
+
+
+
+
+
+
+// :host {
+//   display: block;
+//   padding: 1rem 0;
+// }
+
+// mat-form-field {
+//   width: 500px;
+//   margin: 0 auto;
+//   display: block;
+// }
+
+// mat-card {
+//   margin-bottom: 1rem;
+
+//   mat-card-content {
+//     font-size: 1.5rem;
+//   }
+// }
+
+// .hotelAndRooms {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .hotel-container {
+//   width: 100%;
+//   margin-bottom: 20px;
+//   border: 2px solid #ddd;
+
+//   padding: 10px;
+//   border-radius: 10px;
+
+// }
+
+// .hotels {
+//   display: flex;
+//   align-items: center;
+// }
+
+// .images {
+//   margin-right: 20px;
+//   border-radius: 5px;
+//   overflow: hidden;
+// }
+
+// img {
+//   display: block;
+//   width: 100%;
+//   height: auto;
+// }
+
+// .details {
+//   flex-grow: 1;
+// }
+
+// .rooms-container {
+
+//   width: 100%;
+// }
+
+// .rooms {
+//   display: flex;
+//   margin-bottom: 20px;
+//   border: 2px solid #ddd;
+//   padding: 10px;
+//   border-radius: 10px;
+// }
+
+// .room-images {
+//   margin-right: 20px;
+//   border-radius: 5px;
+//   overflow: hidden;
+// }
+
+// .room-details{
+//   width: 50%;
+
+// }
+
+// .room-booking-form{
+//   width: 30%;
+// }
+
+// .no-rooms {
+//   color: red;
+//   font-weight: bold;
+// }
+
+
+// .room-booking-form {
+//   .date-input {
+//     width: 150px; 
+//     font-size: 14px;
+//   }
+
+//   .price-input {
+//     width: 100px;
+//     font-size: 14px;
+//   }
+// }

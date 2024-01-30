@@ -38,4 +38,17 @@ export interface Room {
 export interface HotelRoom {
   hotel: Hotel;
   rooms: Room[];
+  booking: Booking[];
 }
+
+
+export interface Booking {
+  id: number;
+  roomId: number;
+  userId: number;
+  bookingFrom: Date;
+  bookingTo: Date;
+  hotelId: number;
+  expAmt: number
+}
+

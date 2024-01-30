@@ -37,7 +37,15 @@ export class RegisterComponent {
 
     this.apiService.register(user).subscribe({
       next: res => {
-        this.snackBar.open(res, "OK");
+
+        if(res === 'Same Email'){
+
+          this.snackBar.open("Account With Same Email Exist", "OK");
+        }
+        else{
+
+          this.snackBar.open(res, "OK");
+        }
       }
     });
   }

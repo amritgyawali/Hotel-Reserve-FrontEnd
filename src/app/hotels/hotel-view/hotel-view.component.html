@@ -1,10 +1,37 @@
 <mat-form-field color="accent" appearance="outline">
-    <mat-label>Search Hotels</mat-label>
-    <input matInput>
+    <mat-label>Search Room Type</mat-label>
+    <input matInput (input)="filterRoomCategory(searchField.value)" #searchField>
     <button mat-icon-button matSuffix>
         <mat-icon>search</mat-icon>
     </button>
 </mat-form-field>
+
+<mat-card-content [formGroup]="searchDateWise">
+
+    <mat-form-field class="date-input">
+        <input matInput [matDatepicker]="startDatePicker" placeholder="From Date" formControlName="fromDate"
+            (click)="startDatePicker.open()" [min]="today">
+        <mat-error>Input Start Date</mat-error>
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+
+
+    <mat-form-field class="date-input">
+        <input matInput [matDatepicker]="endDatePicker" placeholder="End Date" formControlName="toDate"
+            (click)="endDatePicker.open()" [min]="nextDay">
+        <mat-error>Input End Date</mat-error>
+        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-card-actions>
+        <button mat-raised-button color="accent" 
+            [disabled]="searchDateWise.invalid" (click)="filterRoomByDate()">Search</button>
+    </mat-card-actions>
+</mat-card-content>
+
+
 
 <mat-card>
     <mat-card-content>
@@ -32,12 +59,15 @@
 
         <!-- Rooms -->
         <div *ngIf="item.rooms.length > 0" class="rooms-container">
+
             <h3>Available Rooms</h3>
             <div *ngFor="let room of item.rooms" class="rooms">
+
                 <div class="room-images">
                     <img [src]="getBase64Image(room.image.toString(), room.imageExtension)" alt="Room Image"
                         [style.width.px]="200" [style.height.px]="200" />
                 </div>
+
                 <div class="room-details">
                     <h4>
                         Room Type: {{room.roomType}}
@@ -46,7 +76,36 @@
                         Description: {{room.description}}
                     </p>
                     <p>Price: Rs {{room.roomPrice}}</p>
-                    <!-- Additional room details can be displayed here -->
+
+                </div>
+
+
+                <div class="room-booking-form">
+
+                    <mat-card-content [formGroup]="bookingForm">
+
+                        <mat-form-field class="date-input">
+                            <input matInput [matDatepicker]="startDatePicker" placeholder="From Date"
+                                formControlName="fromDate" (click)="startDatePicker.open()" [min]="today">
+                            <mat-error>Input Start Date</mat-error>
+                            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                            <mat-datepicker #startDatePicker></mat-datepicker>
+                        </mat-form-field>
+
+
+                        <mat-form-field class="date-input">
+                            <input matInput [matDatepicker]="endDatePicker" placeholder="End Date"
+                                formControlName="toDate" (click)="endDatePicker.open()" [min]="nextDay">
+                            <mat-error>Input End Date</mat-error>
+                            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                            <mat-datepicker #endDatePicker></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-card-actions>
+                            <button mat-raised-button color="accent" (click)="bookNow(room.id, room.hotelId, room.roomPrice)"
+                                [disabled]="bookingForm.invalid">Book Now</button>
+                        </mat-card-actions>
+                    </mat-card-content>
                 </div>
             </div>
         </div>

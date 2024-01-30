@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Subject } from 'rxjs';
-import { Hotel, Room, User } from '../../models/models';
+import { Booking, Hotel, Room, User } from '../../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +72,27 @@ export class ApiService {
 
   getRooms(){
     return this.http.get<Room[]>(this.baseUrl + 'GetRooms');
+  }
+
+  getBookings(){
+
+    return this.http.get<Booking[]>(this.baseUrl + 'GetBookings');
+  }
+
+  getSpecificBookings(userId: number) {
+    const params = new HttpParams().append('userId', userId);
+
+    return this.http.get<Booking[]>(this.baseUrl + 'GetSpecificBookings', { params });
+  }
+
+  setBooking(booking: any){
+
+    console.log(booking);
+
+    return this.http.post(this.baseUrl + "SetBookings", booking, {
+      responseType: 'text',
+    });
+
   }
 
 }

@@ -18,10 +18,25 @@ mat-nav-list {
         font-size: 20px;
     }
 
+    .nav-container{
+        padding: 60px 0;
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        background-color: rgba(33, 33, 33, 0.5);
+    }
+    .links-nav{
+        border: 2px solid rgb(31, 21, 48);
+        width: 80%;
+        margin-bottom: 2%;
+    }
+
     .active-link {
         border: 2px solid rgb(255, 255, 255);
         background-color: rgba($color: #fff, $alpha: 0.2);
     }
+
 
     .button-container, .logged-out {
         display: flex;
